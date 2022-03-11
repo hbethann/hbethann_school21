@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: drgnvgr <drgnvgr@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 14:51:51 by hbethann          #+#    #+#             */
-/*   Updated: 2022/03/10 20:27:28 by drgnvgr          ###   ########.fr       */
+/*   Updated: 2022/03/11 21:53:40 by hbethann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,4 @@ typedef struct s_stack
 	int		min_a;
 }			t_stack;
 
-#endif 
+#endif

@@ -6,7 +6,7 @@
 /*   By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 20:17:04 by drgnvgr           #+#    #+#             */
-/*   Updated: 2022/03/11 18:01:47 by hbethann         ###   ########.fr       */
+/*   Updated: 2022/03/11 22:04:21 by hbethann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,19 +60,41 @@ void	lstadd_back(t_node	**stack_a, t_node *new)
 		if (inception->prev)
 		{
 			inception->prev->next = new;
+			inception->prev = new;
 			new->prev = inception->prev;
 			new->next = inception;
-			inception->prev = new;
 		}
 		else
 		{
-			inception->prev = new;
-			inception->next = new;
 			new->prev = inception;
 			new->next = inception;
+			inception->prev = new;
+			inception->next = new;
 		}
 	}
 	else
 		*stack_a = new;
 	return ;
+}
+
+void	ft_free_stack(t_stack *stack)
+{
+	t_node	*tmp;
+
+	while (stack->size_a--)
+	{
+		tmp = stack->stack_a->next;
+		free(stack->stack_a);
+		stack->stack_a = NULL;
+		stack->stack_a = tmp;
+	}
+	while (stack->size_b--)
+	{
+		tmp = stack->stack_b->next;
+		free(stack->stack_b);
+		stack->stack_b = NULL;
+		stack->stack_b = tmp;
+	}
+	free(stack);
+	exit (0);
 }

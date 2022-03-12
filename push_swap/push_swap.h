@@ -6,7 +6,7 @@
 /*   By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 14:51:51 by hbethann          #+#    #+#             */
-/*   Updated: 2022/03/11 21:53:40 by hbethann         ###   ########.fr       */
+/*   Updated: 2022/03/12 14:56:41 by hbethann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,18 @@ typedef struct s_stack
 	int		max;
 	int		min_a;
 }			t_stack;
+
+// init_stack.c
+t_stack	*struct_init(char **array);
+t_node	*new_list(int num, int index);
+void	lstadd_back(t_node	**stack_a, t_node *new);
+void	ft_free_stack(t_stack *stack);
+
+// ft_check.c
+void	twins(char **array);
+char	**ft_line(char **argv);
+void	check_arg(char **array);
+void	free_array(char **array, int flag);
+void	error(void);
 
 #endif

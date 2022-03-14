@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_stack.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+        */
+/*   By: drgnvgr <drgnvgr@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 22:05:15 by hbethann          #+#    #+#             */
-/*   Updated: 2022/03/12 20:04:35 by hbethann         ###   ########.fr       */
+/*   Updated: 2022/03/14 19:35:04 by drgnvgr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,56 @@ void	stack_add(t_stack *stack, char **arr)
 		i++;
 	}
 	bubble_sorting(stack, sort_arr, not_sort_arr, len);
+}
+
+void	bubble_sorting(t_stack *stack, char *sort_arr,
+		char *not_sort_arr, int len)
+{
+	char	tmp;
+	int		i;
+	int		j;
+
+	i = 0;
+	while (i < len)
+	{
+		j = 0;
+		while (j < (len - 1 - i))
+		{
+			if (sort_arr[j] > sort_arr[j + 1])
+			{
+				tmp = sort_arr[j];
+				sort_arr[j] = sort_arr[j + 1];
+				sort_arr[j + 1] = tmp;
+			}
+			j++;
+		}
+		i++;
+	}
+	create_stack(stack, sort_arr, not_sort_arr, len);
+}
+
+void	create_stack(t_stack *stack, char *sort_arr,
+		char *not_sort_arr, int len)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < len)
+	{
+		j = 0;
+		while (j < len)
+		{
+			if (not_sort_arr[i] == sort_arr[j])
+			{
+				lstadd_back(&stack->stack_a, new_list(not_sort_arr[i], j + 1));
+				j++;
+				break ;
+			}
+			j++;
+		}
+		i++;
+	}
+	free(sort_arr);
+	free(not_sort_arr);
 }

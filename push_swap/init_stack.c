@@ -6,7 +6,7 @@
 /*   By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 20:17:04 by drgnvgr           #+#    #+#             */
-/*   Updated: 2022/03/11 22:04:21 by hbethann         ###   ########.fr       */
+/*   Updated: 2022/03/14 22:37:27 by hbethann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ t_node	*new_list(int num, int index)
 	return (list);
 }
 
-/* изменяем указатель на следующий лист у пердудущего элемента 
+/* изменяем указатель на следующий лист у пердудущего элемента стэка
 			"inception->prev->next = new;" 					*/
 void	lstadd_back(t_node	**stack_a, t_node *new)
 {

@@ -6,7 +6,7 @@
 /*   By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 22:18:50 by hbethann          #+#    #+#             */
-/*   Updated: 2022/03/15 00:31:14 by hbethann         ###   ########.fr       */
+/*   Updated: 2022/03/15 08:24:38 by hbethann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	push_b(t_stack *stack)
 		stack->stack_a->prev = stack->stack_b;
 	}
 	stack->stack_a = buf;
+	stack->stack_a->next->next->prev->prev;
+	stack->stack_a->next->prev->next->prev;
 }
 
 void	push_a(t_stack *stack)

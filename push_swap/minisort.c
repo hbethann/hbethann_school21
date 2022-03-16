@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minisort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+        */
+/*   By: drgnvgr <drgnvgr@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 05:47:45 by hbethann          #+#    #+#             */
-/*   Updated: 2022/03/15 12:35:45 by hbethann         ###   ########.fr       */
+/*   Updated: 2022/03/15 13:10:54 by drgnvgr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ void	five_sort(t_stack *stack)
 {
 	while (stack->size_a > 3)
 	{
-		mmm_a(stack);
+		min_med_max_a(stack);
 		if (stack->stack_a->index == stack->min)
 		{
 			pb(stack, 1);

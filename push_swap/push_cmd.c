@@ -6,7 +6,7 @@
 /*   By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 22:18:50 by hbethann          #+#    #+#             */
-/*   Updated: 2022/03/15 08:24:38 by hbethann         ###   ########.fr       */
+/*   Updated: 2022/03/24 00:06:59 by hbethann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	push_b(t_stack *stack)
 {
-	t_stack	*buf;
+	t_node	*buf;
 
 	buf = stack->stack_a->next;
 	stack->stack_a->prev->next = stack->stack_a->next;
@@ -33,13 +33,11 @@ void	push_b(t_stack *stack)
 		stack->stack_a->prev = stack->stack_b;
 	}
 	stack->stack_a = buf;
-	stack->stack_a->next->next->prev->prev;
-	stack->stack_a->next->prev->next->prev;
 }
 
 void	push_a(t_stack *stack)
 {
-	t_stack	*buf;
+	t_node	*buf;
 
 	buf = stack->stack_b->next;
 	stack->stack_b->prev->next = stack->stack_b->next;

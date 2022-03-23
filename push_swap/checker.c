@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cheker.c                                           :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: drgnvgr <drgnvgr@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 13:32:50 by drgnvgr           #+#    #+#             */
-/*   Updated: 2022/03/23 18:03:54 by drgnvgr          ###   ########.fr       */
+/*   Updated: 2022/03/23 21:48:26 by hbethann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	cmd(t_stack *stack, char *line)
 		error();
 }
 
-static void	cheker(t_stack *stack)
+static void	checker(t_stack *stack)
 {
 	char	*line;
 
@@ -78,7 +78,7 @@ int	main(int argc, char **argv)
 	if (argc > 1)
 	{
 		stack = parser(argv);
-		cheker(stack);
+		checker(stack);
 		ft_free_stack(stack);
 	}
 	return (0);

@@ -6,7 +6,7 @@
 #    By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/10 19:41:36 by hbethann          #+#    #+#              #
-#    Updated: 2022/03/23 18:55:04 by hbethann         ###   ########.fr        #
+#    Updated: 2022/03/24 00:24:14 by hbethann         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ SRCS_B	=
 HEADER	=	~/libft.h
 OBJ		=	$(patsubst %.c, %.o, $(SRCS))
 
-CC		=	gcc
+CC		=	cc
 CFLAGS	=	-Wall -Werror -Wextra -I $(HEADER)
 
 .PHONY	:	all clean fclean re bonus

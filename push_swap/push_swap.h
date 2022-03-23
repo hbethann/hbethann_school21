@@ -6,7 +6,7 @@
 /*   By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 14:51:51 by hbethann          #+#    #+#             */
-/*   Updated: 2022/03/23 18:48:45 by hbethann         ###   ########.fr       */
+/*   Updated: 2022/03/24 00:03:55 by hbethann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,10 @@ void	error(void);
 
 // add_stack.c
 void	stack_add(t_stack *stack, char **arr);
-void	bubble_sorting(t_stack *stack, char *sort_arr,
-			char *not_sort_arr, int len);
-void	create_stack(t_stack *stack, char *sort_arr,
-			char *not_sort_arr, int len);
+void	bubble_sorting(t_stack *stack, int *sort_arr,
+			int *not_sort_arr, int len);
+void	create_stack(t_stack *stack, int *sort_arr,
+			int *not_sort_arr, int len);
 
 // swap.c
 void	sa(t_stack *stack, int flag);
@@ -86,7 +86,7 @@ void	rrr(t_stack *stack, int flag);
 int		sort_true(t_stack *stack);
 void	sort_three_a(t_stack *stack);
 void	sort_three_b(t_stack *stack);
-int		shor_cut(t_stack *stack);
+int		short_cut(t_stack *stack);
 void	five_sort(t_stack *stack);
 
 // medsort.c
@@ -103,11 +103,15 @@ void	search_min_a_to_b(t_stack *stack);
 void	move_a_to_b(t_stack *stack);
 
 // optimus.c
-int		three_el(t_stack *stack);
+void	three_el(t_stack *stack);
 void	five_el_first_ab(t_stack *stack, int flags);
 void	five_el_second_ab(t_stack *stack, int flags, int min, int i);
 void	five_el_first_ba(t_stack *stack, int flags);
 void	five_el_second_ba(t_stack *stack);
+
+// push_swap.c
+void	sorting(t_stack *stack);
+t_stack	*parsing(char **argv);
 
 // cheker.c
 t_stack	*parser(char **argv);

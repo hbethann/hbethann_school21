@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   optimus.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: drgnvgr <drgnvgr@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 22:07:42 by drgnvgr           #+#    #+#             */
-/*   Updated: 2022/03/23 00:25:03 by drgnvgr          ###   ########.fr       */
+/*   Updated: 2022/03/24 00:02:59 by hbethann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	three_el(t_stack *stack)
+void	three_el(t_stack *stack)
 {
 	int	a;
 	int	b;
@@ -112,6 +112,10 @@ void	five_el_second_ba(t_stack *stack)
 	int		i;
 	t_node	*tmp;
 
+	i = stack->size_b;
+	min = stack->stack_a->prev->index + 1;
+	flags = stack->stack_a->flags;
+	tmp = stack->stack_a;
 	while (i > 3)
 	{
 		if (stack->stack_b->index == min)

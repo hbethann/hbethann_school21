@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minisort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: drgnvgr <drgnvgr@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 05:47:45 by hbethann          #+#    #+#             */
-/*   Updated: 2022/03/15 13:10:54 by drgnvgr          ###   ########.fr       */
+/*   Updated: 2022/03/23 23:52:02 by hbethann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	sort_true(t_stack *stack)
 	int		i;
 	t_node	*head;
 
-	head = stack->size_a;
+	head = stack->stack_a;
 	i = stack->size_a - 1;
 	while (i-- > 0)
 	{
@@ -72,13 +72,14 @@ void	sort_three_b(t_stack *stack)
 	}
 }
 
-int	shor_cut(t_stack *stack)
+int	short_cut(t_stack *stack)
 {
 	int		i;
 	int		j;
 	t_node	*tmp;
 
 	tmp = stack->stack_a;
+	i = 0;
 	while (i++)
 	{
 		if (tmp->index == stack->min)

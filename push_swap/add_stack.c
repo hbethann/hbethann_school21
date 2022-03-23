@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_stack.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: drgnvgr <drgnvgr@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 22:05:15 by hbethann          #+#    #+#             */
-/*   Updated: 2022/03/14 19:35:04 by drgnvgr          ###   ########.fr       */
+/*   Updated: 2022/03/23 23:47:53 by hbethann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void	stack_add(t_stack *stack, char **arr)
 	bubble_sorting(stack, sort_arr, not_sort_arr, len);
 }
 
-void	bubble_sorting(t_stack *stack, char *sort_arr,
-		char *not_sort_arr, int len)
+void	bubble_sorting(t_stack *stack, int *sort_arr,
+		int *not_sort_arr, int len)
 {
 	char	tmp;
 	int		i;
@@ -62,8 +62,8 @@ void	bubble_sorting(t_stack *stack, char *sort_arr,
 	create_stack(stack, sort_arr, not_sort_arr, len);
 }
 
-void	create_stack(t_stack *stack, char *sort_arr,
-		char *not_sort_arr, int len)
+void	create_stack(t_stack *stack, int *sort_arr,
+		int *not_sort_arr, int len)
 {
 	int	i;
 	int	j;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+        */
+/*   By: drgnvgr <drgnvgr@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 19:07:41 by hbethann          #+#    #+#             */
-/*   Updated: 2022/03/10 19:15:10 by hbethann         ###   ########.fr       */
+/*   Updated: 2022/03/23 16:57:47 by drgnvgr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int		ft_isdigit(int c);
 int		ft_isprint(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
+
 //	memmory
 void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
@@ -75,5 +76,14 @@ char	*ft_strtrim(char const *s1, char const *set);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 char	**ft_split(char const *s, char c);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+
+// get_next_line
+char	*ft_strchr_gnl(char *str, int c);
+char	*ft_strjoin_gnl(char *s1, char *s2);
+size_t	ft_strlen_gnl(char *s);
+char	*get_next_line(int fd);
+char	*ft_gnl_read(int fd, char *progress);
+char	*ft_next_line(char *progress);
+char	*ft_gnl_dup(char *str);
 
 #endif

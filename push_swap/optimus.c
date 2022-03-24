@@ -6,7 +6,7 @@
 /*   By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 22:07:42 by drgnvgr           #+#    #+#             */
-/*   Updated: 2022/03/24 00:02:59 by hbethann         ###   ########.fr       */
+/*   Updated: 2022/03/24 19:09:43 by hbethann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ void	five_el_first_ba(t_stack *stack, int flags)
 			push_down(stack);
 	}
 	while (stack->stack_a->flags == flags && flags != -1 && \
-		stack->stack_a->index + 1 == stack->stack_a->prev->index)
+		stack->stack_a->index +1 == stack->stack_a->prev->index)
 		push_down(stack);
 }
 

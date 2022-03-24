@@ -6,7 +6,7 @@
 /*   By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 14:51:51 by hbethann          #+#    #+#             */
-/*   Updated: 2022/03/24 00:03:55 by hbethann         ###   ########.fr       */
+/*   Updated: 2022/03/24 19:23:57 by hbethann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 # define PUSH_SWAP_H
 
 # include <stdlib.h>
-# include "libft/libft.h"
+# include <stdio.h>
+# include <unistd.h>
+# include "../libft/libft.h"
 
 # define MAX_INT 2147483647
 # define MIN_INT -2147483648
@@ -112,8 +114,5 @@ void	five_el_second_ba(t_stack *stack);
 // push_swap.c
 void	sorting(t_stack *stack);
 t_stack	*parsing(char **argv);
-
-// cheker.c
-t_stack	*parser(char **argv);
 
 #endif

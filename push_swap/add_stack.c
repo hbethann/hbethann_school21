@@ -6,7 +6,7 @@
 /*   By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 22:05:15 by hbethann          #+#    #+#             */
-/*   Updated: 2022/03/23 23:47:53 by hbethann         ###   ########.fr       */
+/*   Updated: 2022/03/24 18:55:56 by hbethann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ void	bubble_sorting(t_stack *stack, int *sort_arr,
 		{
 			if (sort_arr[j] > sort_arr[j + 1])
 			{
-				tmp = sort_arr[j];
-				sort_arr[j] = sort_arr[j + 1];
-				sort_arr[j + 1] = tmp;
+				tmp = sort_arr[j + 1];
+				sort_arr[j + 1] = sort_arr[j];
+				sort_arr[j] = tmp;
 			}
 			j++;
 		}
@@ -84,6 +84,6 @@ void	create_stack(t_stack *stack, int *sort_arr,
 		}
 		i++;
 	}
-	free(sort_arr);
 	free(not_sort_arr);
+	free(sort_arr);
 }

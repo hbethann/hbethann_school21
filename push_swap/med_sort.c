@@ -3,14 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   med_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: drgnvgr <drgnvgr@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 13:09:02 by drgnvgr           #+#    #+#             */
-/*   Updated: 2022/03/22 18:16:25 by drgnvgr          ###   ########.fr       */
+/*   Updated: 2022/03/24 19:06:52 by hbethann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	move_down(t_stack *stack)
+{
+	while (stack->stack_b->prev->flags == -1)
+		rrb(stack, 1);
+	while (stack->stack_b->flags == -1)
+	{
+		pa(stack, 1);
+		ra(stack, 1);
+	}
+}
 
 void	min_med_max_a(t_stack *stack)
 {
@@ -57,17 +68,6 @@ void	min_med_max_b(t_stack *stack)
 	}
 	stack->max = max;
 	stack->med = (min + max) / 2;
-}
-
-void	move_down(t_stack *stack)
-{
-	while (stack->stack_b->prev->flags == -1)
-		rrb(stack, 1);
-	while (stack->stack_b->flags == -1)
-	{
-		pa(stack, 1);
-		ra(stack, 1);
-	}
 }
 
 void	move_a_to_b_first(t_stack *stack)

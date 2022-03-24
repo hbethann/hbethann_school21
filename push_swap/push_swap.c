@@ -6,7 +6,7 @@
 /*   By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 19:29:33 by hbethann          #+#    #+#             */
-/*   Updated: 2022/03/23 21:38:55 by hbethann         ###   ########.fr       */
+/*   Updated: 2022/03/24 19:51:30 by hbethann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ void	sorting(t_stack *stack)
 		ft_free_stack(stack);
 	}
 	move_a_to_b_first(stack);
-	while (!(sort_true(stack) && stack->size_a == 0))
+	while (!(sort_true(stack) && stack->size_b == 0))
 	{
 		if (stack->size_b > 0 && stack->size_b < 6)
 			five_el_second_ba(stack);
 		else if (stack->size_b >= 6)
-			move_a_to_b(stack);
+			move_b_to_a(stack);
 		if (stack->size_b == 0)
 		{
 			five_el_second_ab(stack, 0, 0, 0);
@@ -56,7 +56,7 @@ int	main(int argc, char **argv)
 
 	if (argc > 1)
 	{
-		stack = parser(argv);
+		stack = parsing(argv);
 		sorting(stack);
 		ft_free_stack(stack);
 	}

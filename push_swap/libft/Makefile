@@ -6,7 +6,7 @@
 #    By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/10 19:41:36 by hbethann          #+#    #+#              #
-#    Updated: 2022/03/24 00:24:14 by hbethann         ###   ########.fr        #
+#    Updated: 2022/03/24 17:49:56 by hbethann         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,11 +26,11 @@ SRCS	=	ft_atoi.c		ft_bzero.c				ft_calloc.c			ft_isalnum.c\
 			ft_lstdelone.c	ft_lstclear.c			ft_lstadd_front.c	ft_lstadd_back.c
 
 SRCS_B	=	
-HEADER	=	~/libft.h
+HEADER	=	libft.h
 OBJ		=	$(patsubst %.c, %.o, $(SRCS))
 
 CC		=	cc
-CFLAGS	=	-Wall -Werror -Wextra -I $(HEADER)
+CFLAGS	=	-Wall -Werror -Wextra -g -I $(HEADER)
 
 .PHONY	:	all clean fclean re bonus
 

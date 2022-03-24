@@ -6,7 +6,7 @@
 /*   By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 07:28:35 by drgnvgr           #+#    #+#             */
-/*   Updated: 2022/03/11 17:33:12 by hbethann         ###   ########.fr       */
+/*   Updated: 2022/03/24 21:01:39 by hbethann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,18 @@ char	**ft_line(char **argv)
 	int		i;
 	char	*line;
 	char	**array;
+	char	*tmp;
 
 	line = ft_strdup(argv[1]);
 	i = 1;
 	while (argv[++i])
 	{
+		tmp = line;
 		line = ft_strjoin(line, " ");
+		free(tmp);
+		tmp = line;
 		line = ft_strjoin(line, argv[i]);
+		free(tmp);
 	}
 	array = ft_split(line, ' ');
 	free(line);

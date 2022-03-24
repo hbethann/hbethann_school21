@@ -6,7 +6,7 @@
 /*   By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 13:32:50 by drgnvgr           #+#    #+#             */
-/*   Updated: 2022/03/23 21:48:26 by hbethann         ###   ########.fr       */
+/*   Updated: 2022/03/24 17:36:45 by hbethann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,20 @@ static void	cmd(t_stack *stack, char *line)
 		error();
 }
 
+static t_stack	*pars(char **argv)
+{
+	t_stack	*stack;
+	char	**array;
+
+	array = ft_line(argv);
+	check_arg(array);
+	twins(array);
+	stack = struct_init(array);
+	stack_add(stack, array);
+	free_array(array, 0);
+	return (stack);
+}
+
 static void	checker(t_stack *stack)
 {
 	char	*line;
@@ -57,19 +71,19 @@ static void	checker(t_stack *stack)
 		write(1, "KO\n", 3);
 }
 
-t_stack	*parser(char **argv)
-{
-	t_stack	*stack;
-	char	**array;
-
-	array = ft_line(argv);
-	check_arg(array);
-	twins(array);
-	stack = struct_init(array);
-	stack_add(stack, array);
-	free_array(array, 0);
-	return (stack);
-}
+//t_stack	*parsing(char **argv)
+//{
+//	t_stack	*stack;
+//	char	**array;
+//
+//	array = ft_line(argv);
+//	check_arg(array);
+//	twins(array);
+//	stack = struct_init(array);
+//	stack_add(stack, array);
+//	free_array(array, 0);
+//	return (stack);
+//}
 
 int	main(int argc, char **argv)
 {
@@ -77,7 +91,7 @@ int	main(int argc, char **argv)
 
 	if (argc > 1)
 	{
-		stack = parser(argv);
+		stack = pars(argv);
 		checker(stack);
 		ft_free_stack(stack);
 	}

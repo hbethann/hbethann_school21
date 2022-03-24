@@ -6,91 +6,88 @@
 /*   By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 06:10:15 by hbethann          #+#    #+#             */
-/*   Updated: 2021/11/15 23:21:52 by hbethann         ###   ########.fr       */
+/*   Updated: 2022/03/24 19:33:15 by hbethann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_cwords(const char *str, char c)
+static int	word_count(char *str, char delim)
 {
 	int	i;
-	int	ct;
+	int	count;
 
 	i = 0;
-	ct = 0;
-	while (str[i])
+	count = 0;
+	while (str[i] != '\0')
 	{
-		if (str[i] == c)
-			i++;
-		else
-		{
-			ct++;
-			while (str[i] && str[i] != c)
-				i++;
-		}
+		if ((str[i] != delim && str[i + 1] == delim)
+			|| (str[i] != delim && str[i + 1] == '\0'))
+			count++;
+		i++;
 	}
-	return (ct);
+	return (count);
 }
 
-char	**ft_free(int i, char **str)
+static int	word_len(char *word, char delim)
 {
-	while (i > 0)
+	int	count;
+
+	count = 0;
+	while (word[count] != delim && word[count] != '\0')
 	{
-		free(str[i - 1]);
-		i--;
+		count++;
 	}
-	free(str);
+	return (count);
+}
+
+static void	*free_mem(char **mem)
+{
+	int	i;
+
+	i = 0;
+	while (mem[i] != NULL)
+	{
+		free(mem[i]);
+		i++;
+	}
+	free(mem);
 	return (NULL);
 }
 
-static char	*ft_create(const char *str, char c)
+static char	**logic(char const *s, char c, char	**mem)
 {
-	int		i;
-	char	*nstr;
+	int	i;
+	int	j;
+	int	wlen;
 
 	i = 0;
-	while (*str && *str == c)
-		str++;
-	while (str[i] && str[i] != c)
-		i++;
-	nstr = malloc(sizeof(char) * (i + 1));
-	if (!nstr)
-		return (NULL);
-	i = 0;
-	while (str[i] && str[i] != c)
+	j = 0;
+	while (s[i] != '\0')
 	{
-		nstr[i] = str[i];
+		if (s[i] != c)
+		{
+			wlen = word_len((char *)(s + i), c);
+			mem[j] = ft_substr(&s[i], 0, wlen);
+			if (mem[j] == NULL)
+				return (free_mem(mem));
+			i += (wlen - 1);
+			j++;
+		}
 		i++;
 	}
-	nstr[i] = '\0';
-	return (nstr);
+	mem[j] = NULL;
+	return (mem);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**spstr;
-	int		wrds;
-	int		i;
+	char	**mem;
 
-	if (!s)
+	if (s == NULL)
 		return (NULL);
-	wrds = ft_cwords(s, c);
-	spstr = malloc(sizeof(char *) * (wrds + 1));
-	if (!spstr)
+	mem = (char **)malloc(sizeof(char *) * (word_count((char *)s, c) + 1));
+	if (mem == NULL)
 		return (NULL);
-	i = 0;
-	while (i < wrds)
-	{
-		while (*s && *s == c)
-			s++;
-		spstr[i] = ft_create(s, c);
-		if (!spstr[i])
-			return (ft_free(i, spstr));
-		while (*s && *s != c)
-			s++;
-		i++;
-	}
-	spstr[i] = NULL;
-	return (spstr);
+	return (logic(s, c, mem));
 }

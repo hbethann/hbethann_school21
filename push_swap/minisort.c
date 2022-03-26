@@ -6,7 +6,7 @@
 /*   By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 05:47:45 by hbethann          #+#    #+#             */
-/*   Updated: 2022/03/23 23:52:02 by hbethann         ###   ########.fr       */
+/*   Updated: 2022/03/26 23:52:39 by hbethann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ void	sort_three_b(t_stack *stack)
 		rrb(stack, 1);
 	else if (a > b && a > c)
 		rb(stack, 1);
+	a = stack->stack_b->index;
+	b = stack->stack_b->next->index;
 	if (a > b)
 		sb(stack, 1);
 	while (i-- > 0)
@@ -80,7 +82,7 @@ int	short_cut(t_stack *stack)
 
 	tmp = stack->stack_a;
 	i = 0;
-	while (i++)
+	while (++i)
 	{
 		if (tmp->index == stack->min)
 			break ;
@@ -92,7 +94,7 @@ int	short_cut(t_stack *stack)
 	{
 		if (tmp->index == stack->min)
 			break ;
-		tmp = tmp->next;
+		tmp = tmp->prev;
 	}
 	if (j >= i)
 		return (1);

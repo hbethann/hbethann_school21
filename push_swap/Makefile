@@ -22,7 +22,7 @@ HEADER	=	push_swap.h
 
 CC		=	cc
 
-FLAGS	=	-Wall -Werror -Wextra -g
+FLAGS	=	-Wall -Werror -Wextra 
 
 RM		=	rm -rf
 

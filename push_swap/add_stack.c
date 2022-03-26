@@ -6,7 +6,7 @@
 /*   By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 22:05:15 by hbethann          #+#    #+#             */
-/*   Updated: 2022/03/24 18:55:56 by hbethann         ###   ########.fr       */
+/*   Updated: 2022/03/26 19:24:00 by hbethann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	stack_add(t_stack *stack, char **arr)
 		len++;
 	sort_arr = malloc(sizeof(int) * len);
 	not_sort_arr = malloc(sizeof(int) * len);
+	i = 0;
 	while (i < len)
 	{
 		num = ft_atoi(arr[i]);

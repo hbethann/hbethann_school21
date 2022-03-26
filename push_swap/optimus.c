@@ -6,7 +6,7 @@
 /*   By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 22:07:42 by drgnvgr           #+#    #+#             */
-/*   Updated: 2022/03/24 19:09:43 by hbethann         ###   ########.fr       */
+/*   Updated: 2022/03/26 22:00:15 by hbethann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void	three_el(t_stack *stack)
 void	five_el_first_ab(t_stack *stack, int flags)
 {
 	three_el(stack);
-	if (stack->stack_a->index > stack->stack_a->next->index || \
-		stack->stack_a->flags != flags)
+	if (stack->stack_a->index > stack->stack_a->next->index && \
+		stack->stack_a->flags == stack->stack_a->next->flags)
 		sa(stack, 1);
 	while (stack->size_b != 0)
 	{
@@ -113,7 +113,7 @@ void	five_el_second_ba(t_stack *stack)
 	t_node	*tmp;
 
 	i = stack->size_b;
-	min = stack->stack_a->prev->index + 1;
+	min = stack->stack_a->prev->index +1;
 	flags = stack->stack_a->flags;
 	tmp = stack->stack_a;
 	while (i > 3)

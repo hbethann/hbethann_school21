@@ -6,7 +6,7 @@
 /*   By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 22:18:50 by hbethann          #+#    #+#             */
-/*   Updated: 2022/03/24 00:06:59 by hbethann         ###   ########.fr       */
+/*   Updated: 2022/03/26 21:26:38 by hbethann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	push_b(t_stack *stack)
 		stack->stack_a->prev = stack->stack_b->prev;
 		stack->stack_a->next = stack->stack_b;
 		stack->stack_b->prev->next = stack->stack_a;
+		stack->stack_b->prev = stack->stack_a;
 		stack->stack_b = stack->stack_a;
 	}
 	else
@@ -47,6 +48,7 @@ void	push_a(t_stack *stack)
 		stack->stack_b->prev = stack->stack_a->prev;
 		stack->stack_b->next = stack->stack_a;
 		stack->stack_a->prev->next = stack->stack_b;
+		stack->stack_a->prev = stack->stack_b;
 		stack->stack_a = stack->stack_b;
 	}
 	else
@@ -65,8 +67,8 @@ void	pb(t_stack *stack, int flag)
 	push_b(stack);
 	if (stack->size_a == 1)
 		stack->stack_a = NULL;
-	stack->size_a--;
 	stack->size_b++;
+	stack->size_a--;
 	if (flag)
 		write(1, "pb\n", 3);
 }
@@ -75,7 +77,7 @@ void	pa(t_stack *stack, int flag)
 {
 	if (stack->stack_b == 0)
 		return ;
-	push_b(stack);
+	push_a(stack);
 	if (stack->size_b == 1)
 		stack->stack_b = NULL;
 	stack->size_b--;

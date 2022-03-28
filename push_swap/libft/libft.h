@@ -6,7 +6,7 @@
 /*   By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 19:07:41 by hbethann          #+#    #+#             */
-/*   Updated: 2022/03/26 19:17:48 by hbethann         ###   ########.fr       */
+/*   Updated: 2022/03/28 13:54:01 by hbethann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,11 @@ char		**ft_split(char const *s, char c);
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 // get_next_line
-char		*ft_strchr_gnl(char *str, int c);
-char		*ft_strjoin_gnl(char *s1, char *s2);
-size_t		ft_strlen_gnl(char *s);
+size_t		ft_gnl_strlen(const char *str);
+char		*ft_gnl_strchr(const char *s, int c);
+char		*ft_gnl_strjoin(char *s1, char *s2);
+char		*ft_gnl_strdup(const char *s1);
+char		*ft_remainder(char **tail);
+char		*ft_reading(int fd, char *line, char **tail, int rd);
 char		*get_next_line(int fd);
-char		*ft_gnl_read(int fd, char *progress);
-char		*ft_next_line(char *progress);
-char		*ft_gnl_dup(char *str);
-
 #endif

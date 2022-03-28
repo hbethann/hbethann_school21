@@ -6,101 +6,79 @@
 /*   By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 17:44:33 by hbethann          #+#    #+#             */
-/*   Updated: 2022/03/26 19:57:17 by hbethann         ###   ########.fr       */
+/*   Updated: 2022/03/28 13:50:15 by hbethann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_gnl_dup(char *str)
+char	*ft_remainder(char **tail)
 {
-	char	*res;
-	int		i;
+	char		*line;
+	char		*pn;
+	char		*tmp_tail;
 
-	i = 0;
-	if (!str[i])
-		return (NULL);
-	while (str[i] && str[i] != '\n')
-		i++;
-	res = (char *)malloc(sizeof(char) * (i + 2));
-	if (res == NULL)
-		return (NULL);
-	i = 0;
-	while (str[i] && str[i] != '\n')
+	if (*tail != NULL)
 	{
-		res[i] = str[i];
-		i++;
+		if (ft_gnl_strchr(*tail, '\n'))
+		{
+			pn = ft_gnl_strchr(*tail, '\n');
+			tmp_tail = ft_gnl_strdup(pn + 1);
+			*(pn + 1) = '\0';
+			line = ft_gnl_strdup(*tail);
+			free(*tail);
+			*tail = tmp_tail;
+		}
+		else
+		{
+			line = *tail;
+			*tail = NULL;
+		}
 	}
-	if (str[i] == '\n')
-	{
-		res[i] = str[i];
-		i++;
-	}
-	res[i] = '\0';
-	return (res);
+	else
+		line = ft_gnl_strdup("");
+	return (line);
 }
 
-char	*ft_next_line(char *progress)
+char	*ft_reading(int fd, char *line, char **tail, int rd)
 {
-	unsigned int		i;
-	unsigned int		j;
-	char				*s;
+	char	buffer[BUFFER_SIZE + 1];
+	char	*tmp;
+	char	*pn;
 
-	i = 0;
-	j = 0;
-	while (progress[i] && progress[i] != '\n')
-		i++;
-	if (!progress[i])
+	while (rd > 0 && !ft_gnl_strchr(line, '\n') && !(*tail))
 	{
-		free(progress);
-		return (NULL);
-	}
-	s = (char *)malloc(sizeof(char) * (ft_strlen_gnl(progress) - i + 2));
-	if (!s)
-		return (NULL);
-	i++;
-	while (progress[i])
-		s[j++] = progress[i++];
-	free(progress);
-	s[j] = '\0';
-	return (s);
-}
-
-char	*ft_gnl_read(int fd, char *progress)
-{
-	char	*buf;
-	int		res_read;
-
-	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (!buf)
-		return (NULL);
-	res_read = 1;
-	while (!ft_strchr_gnl(progress, '\n') && res_read != 0)
-	{
-		res_read = read(fd, buf, BUFFER_SIZE);
-		if (res_read == -1)
-		{	
-			free(buf);
+		rd = read(fd, buffer, BUFFER_SIZE);
+		if (rd == 0 && *line == '\0')
+		{
+			free(line);
 			return (NULL);
 		}
-		buf[res_read] = '\0';
-		progress = ft_strjoin_gnl(progress, buf);
+		buffer[rd] = '\0';
+		if (ft_gnl_strchr(buffer, '\n'))
+		{
+			pn = ft_gnl_strchr(buffer, '\n');
+			*tail = ft_gnl_strdup(pn + 1);
+			*(pn + 1) = '\0';
+		}
+		tmp = line;
+		line = ft_gnl_strjoin(line, buffer);
+		free(tmp);
 	}
-	free(buf);
-	return (progress);
+	return (line);
 }
 
 char	*get_next_line(int fd)
 {
+	static char	*tail;
 	char		*line;
-	static char	*progress;
+	char		buf[1];
+	int			rd;
 
-	if (fd < 0 || BUFFER_SIZE < 1 || read(fd, NULL, 0) < 0)
+	if (fd < 0 || BUFFER_SIZE < 0 || read(fd, buf, 0) < 0)
 		return (NULL);
-	progress = ft_gnl_read(fd, progress);
-	if (progress == NULL)
-		return (NULL);
-	line = ft_gnl_dup(progress);
-	progress = ft_next_line(progress);
+	rd = 1;
+	line = ft_remainder(&tail);
+	line = ft_reading(fd, line, &tail, rd);
 	return (line);
 }

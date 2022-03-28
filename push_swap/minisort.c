@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minisort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egor <egor@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 05:47:45 by hbethann          #+#    #+#             */
-/*   Updated: 2022/03/28 06:55:38 by egor             ###   ########.fr       */
+/*   Updated: 2022/03/28 12:42:39 by hbethann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int	short_cut(t_stack *stack)
 	}
 	tmp = stack->stack_a;
 	j = 0;
-	while (j++)
+	while (++j)
 	{
 		if (tmp->index == stack->min)
 			break ;

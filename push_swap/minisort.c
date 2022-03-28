@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minisort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egor <egor@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 05:47:45 by hbethann          #+#    #+#             */
-/*   Updated: 2022/03/26 23:52:39 by hbethann         ###   ########.fr       */
+/*   Updated: 2022/03/28 06:55:38 by egor             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,5 +118,5 @@ void	five_sort(t_stack *stack)
 	}
 	sort_three_a(stack);
 	pa(stack, 1);
-	pa (stack, 1);
+	pa(stack, 1);
 }

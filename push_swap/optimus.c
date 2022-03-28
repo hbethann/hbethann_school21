@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   optimus.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egor <egor@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 22:07:42 by drgnvgr           #+#    #+#             */
-/*   Updated: 2022/03/26 22:00:15 by hbethann         ###   ########.fr       */
+/*   Updated: 2022/03/28 07:21:46 by egor             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,12 +110,10 @@ void	five_el_second_ba(t_stack *stack)
 	int		flags;
 	int		min;
 	int		i;
-	t_node	*tmp;
 
 	i = stack->size_b;
 	min = stack->stack_a->prev->index +1;
 	flags = stack->stack_a->flags;
-	tmp = stack->stack_a;
 	while (i > 3)
 	{
 		if (stack->stack_b->index == min)

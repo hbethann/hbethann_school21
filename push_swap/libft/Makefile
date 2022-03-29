@@ -6,7 +6,7 @@
 #    By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/10 19:41:36 by hbethann          #+#    #+#              #
-#    Updated: 2022/03/28 14:15:38 by hbethann         ###   ########.fr        #
+#    Updated: 2022/03/29 18:25:24 by hbethann         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ SRCS	=	ft_atoi.c		ft_bzero.c				ft_calloc.c			ft_isalnum.c\
 			ft_strtrim.c	ft_itoa.c				ft_striteri.c		ft_strmapi.c\
 			ft_split.c		get_next_line_utils.c	get_next_line.c		ft_lstsize.c\
 			ft_lstnew.c		ft_lstmap.c				ft_lstlast.c		ft_lstiter.c\
-			ft_lstdelone.c	ft_lstclear.c			ft_lstadd_front.c	ft_lstadd_back.c
+			ft_lstdelone.c	ft_lstclear.c			ft_lstadd_front.c	ft_lstadd_back.c\
+			int2char.c
 
 SRCS_B	=	
 HEADER	=	libft.h

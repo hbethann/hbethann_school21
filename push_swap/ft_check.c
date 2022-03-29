@@ -6,7 +6,7 @@
 /*   By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 07:28:35 by drgnvgr           #+#    #+#             */
-/*   Updated: 2022/03/29 06:55:05 by hbethann         ###   ########.fr       */
+/*   Updated: 2022/03/29 19:20:23 by hbethann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ void	check_arg(char **array)
 				free_array(array, 1);
 			j++;
 		}
+		num = ft_atoi(array[i]);
+		if (ft_strncmp(mem_i2c(num), array[i], ft_strlen(array[i])))
+			free_array(array, 1);
 	}
-	num = ft_atoi(array[i]);
-	if (!ft_strncmp())
-		free_array(array, 1);
 }
 
 char	**ft_line(char **argv)

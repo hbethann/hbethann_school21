@@ -6,7 +6,7 @@
 /*   By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 19:07:41 by hbethann          #+#    #+#             */
-/*   Updated: 2022/03/29 02:00:46 by hbethann         ###   ########.fr       */
+/*   Updated: 2022/03/29 18:18:57 by hbethann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,7 @@ char		*ft_gnl_strdup(const char *s1);
 char		*ft_remainder(char **tail);
 char		*ft_reading(int fd, char *line, char **tail, int rd);
 char		*get_next_line(int fd);
+// for ft_check.c
+char		*mem_i2c(int num);
+
 #endif

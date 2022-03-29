@@ -6,7 +6,7 @@
 /*   By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 19:29:33 by hbethann          #+#    #+#             */
-/*   Updated: 2022/03/24 19:51:30 by hbethann         ###   ########.fr       */
+/*   Updated: 2022/03/29 04:38:06 by hbethann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	main(int argc, char **argv)
 {
 	t_stack	*stack;
 
-	if (argc > 1)
+	if (argc >= 1)
 	{
 		stack = parsing(argv);
 		sorting(stack);

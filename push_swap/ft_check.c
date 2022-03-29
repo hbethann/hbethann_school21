@@ -6,7 +6,7 @@
 /*   By: hbethann <hbethann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 07:28:35 by drgnvgr           #+#    #+#             */
-/*   Updated: 2022/03/26 18:53:06 by hbethann         ###   ########.fr       */
+/*   Updated: 2022/03/29 06:55:05 by hbethann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	check_arg(char **array)
 {
 	int			i;
 	int			j;
-	long long	num;
+	int			num;
 
 	i = -1;
 	while (array[++i])
@@ -50,7 +50,7 @@ void	check_arg(char **array)
 		}
 	}
 	num = ft_atoi(array[i]);
-	if (num > MAX_INT || num < MIN_INT)
+	if (!ft_strncmp())
 		free_array(array, 1);
 }
 
